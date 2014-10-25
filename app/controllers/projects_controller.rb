@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
+
   before_action :set_project, only: [:show, :update, :destroy, :edit]
+
   def index
     @user = User.find_by_username(params[:user_id])
     @projects = @user.projects
@@ -30,13 +32,15 @@ class ProjectsController < ApplicationController
     redirect_to user_projects_path(@user)
   end
 
-
   private
+
   def set_project
     @project = Project.find( params[:id] )
     @user = current_user
   end
+
   def project_params
     params.require(:project).permit(:title, :description)
   end
+
 end

@@ -11,6 +11,6 @@
 <% end %>
 
 <div class='project__description'>
-  <%= @project.description && @project.description.html_safe %>
+  <%= @project.description && markdown(@project.description).html_safe %>
 </div>
 
