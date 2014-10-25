@@ -1,0 +1,5 @@
+<% if current_user %>
+  <%= render 'quick_add' %> 
+<% else %>
+  <%= render 'devise/sessions/new' %>
+<% end %>
