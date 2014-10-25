@@ -1,3 +1,4 @@
+<h2>Projects by <%= @user.username %></h2>
 <% @projects.each do |project| %>
   <div class='project'>
     <h3><%= link_to project.title, user_project_path( @user, project ) %></h3>
