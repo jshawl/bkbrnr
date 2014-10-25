@@ -1,1 +1,6 @@
+<%= link_to @user.username, @user %> &raquo;
+<%= link_to @project.title, user_project_path( @user,@project ) %>
+<br>
+<br>
+
 <%= render 'form' %>

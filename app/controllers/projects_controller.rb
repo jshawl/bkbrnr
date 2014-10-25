@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :update, :destroy, :edit]
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find_by_username(params[:user_id])
     @projects = @user.projects
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @user = User.find_by_username(params[:user_id])
   end
 
   def edit

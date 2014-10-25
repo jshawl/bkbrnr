@@ -18,4 +18,7 @@ def self.find_first_by_auth_conditions(warden_conditions)
     where(conditions).first
   end
 end
+def to_param
+  username
+end
 end

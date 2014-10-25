@@ -1,11 +1,16 @@
+<%= link_to @user.username, @user %> &raquo;
+<%= link_to @project.title, user_project_path( @user,@project ) %>
+<br>
+<br>
 <h3><%= @project.title %></h3>
 
-<%= @project.description %>
-
 <% if current_user %>
-
   <%= link_to 'Edit', edit_user_project_path( @user, @project )%>
   <%= link_to 'Delete', user_project_path( @user, @project ), method: :delete %>
-
+  <br>
 <% end %>
+
+<div class='project__description'>
+  <%= @project.description && @project.description.html_safe %>
+</div>
 
