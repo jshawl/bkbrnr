@@ -1,12 +1,23 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :update, :delete]
+  before_action :set_project, only: [:show, :update, :destroy, :edit]
   def index
-    
+    @user = User.find(params[:user_id])
+    @projects = @user.projects
   end
 
   def show
-
+    @user = User.find(params[:user_id])
   end
+
+  def edit
+  end
+
+  def update
+    if @project.update( project_params.merge(user:current_user) )
+      redirect_to user_project_path(@user,@project)
+    end
+  end
+
   def create
     @project = Project.new(project_params.merge(user:current_user))
     if @project.save
@@ -14,10 +25,16 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @project.destroy
+    redirect_to user_projects_path(@user)
+  end
+
 
   private
   def set_project
     @project = Project.find( params[:id] )
+    @user = current_user
   end
   def project_params
     params.require(:project).permit(:title, :description)

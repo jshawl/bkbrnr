@@ -1,2 +1,11 @@
 <h3><%= @project.title %></h3>
 
+<%= @project.description %>
+
+<% if current_user %>
+
+  <%= link_to 'Edit', edit_user_project_path( @user, @project )%>
+  <%= link_to 'Delete', user_project_path( @user, @project ), method: :delete %>
+
+<% end %>
+
