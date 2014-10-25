@@ -1,5 +1,8 @@
 <% if current_user %>
-  <%= render 'quick_add' %> 
+  <%= render 'projects/quick_add' %> 
+  <% current_user.projects.each do |project| %>
+    <li><%= link_to project.title, user_project_path(current_user, project) %></li>
+  <% end %>
 <% else %>
   <%= render 'devise/sessions/new' %>
 <% end %>
