@@ -22,7 +22,8 @@
 body{
   font-family:monospace;
   max-width:50em;
-  margin:3em auto;
+  padding:3em 2em;
+  margin:auto;
 }
 
 .left{
@@ -80,7 +81,9 @@ input[type="text"].quick-add, input[type='text']{
   font-size:2em;
 }
 
-input[type='text'], textarea{
+input[type='text'], 
+input[type='password'], 
+textarea{
   display:block;
   font:inherit;
   width:100%;
@@ -98,4 +101,14 @@ textarea{
   margin-top:2em;
   line-height:1.5;
   font-size:1.5em;
+}
+
+@media all and (max-width:40em){
+  input[type='text'].quick-add{
+    border:1px solid #eee;
+    font-size:1.25em;
+  }
+  .project h3{
+    font-size:1.25em;
+  }
 }
