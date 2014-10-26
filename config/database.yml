@@ -14,4 +14,4 @@ test:
 
 production:
   <<: *default
-  database: bkbrnr
+  database: bkbrnr.com_production
