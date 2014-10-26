@@ -5,10 +5,18 @@ class ProjectsController < ApplicationController
   def index
     @user = User.find_by_username(params[:user_id])
     @projects = @user.projects
+    respond_to do |format| 
+      format.html
+      format.json { render json: @projects }
+    end
   end
 
   def show
     @user = User.find_by_username(params[:user_id])
+    respond_to do |format| 
+      format.html
+      format.json { render json: @project }
+    end
   end
 
   def edit
