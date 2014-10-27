@@ -13,6 +13,8 @@ class ProjectsController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:user_id])
+    @comments = @project.comments
+    @comment = Comment.new
     respond_to do |format| 
       format.html
       format.json { render json: @project }
