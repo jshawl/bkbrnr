@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'devise'
+gem 'gravtastic'
 gem 'rails_12factor'
 gem 'redcarpet', '~> 3.0.0'
 
